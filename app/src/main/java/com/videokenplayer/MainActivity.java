@@ -130,54 +130,63 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         myPlayerStateChangeListener = new MyPlayerStateChangeListener();
         myPlaybackEventListener = new MyPlaybackEventListener();
 
-//        startBtn.setOnClickListener(v -> {
-//
-//
-//            if (ActivityCompat.checkSelfPermission(MainActivity.this,
-//                    Manifest.permission.RECORD_AUDIO)
-//                    != PackageManager.PERMISSION_GRANTED) {
-//
-//                // Should we show an explanation?
-//                if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-//                        Manifest.permission.RECORD_AUDIO)) {
-//
-//                    // Show an explanation to the user *asynchronously* -- don't block
-//                    // this thread waiting for the user's response! After the user
-//                    // sees the explanation, try again to request the permission.
-//
-//                    Snackbar.make(mLayout, R.string.permission_audio_record_rationale,
-//                            Snackbar.LENGTH_INDEFINITE)
-//                            .setAction("OK", view -> ActivityCompat.requestPermissions(MainActivity.this,
-//                                    new String[]{Manifest.permission.RECORD_AUDIO},
-//                                    REQUEST_AUDIO))
-//                            .show();
-//
-//                } else {
-//
-//                    // No explanation needed, we can request the permission.
-//
-//                    ActivityCompat.requestPermissions(MainActivity.this,
-//                            new String[]{Manifest.permission.RECORD_AUDIO},
-//                            REQUEST_AUDIO);
-//
-//                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-//                    // app-defined int constant. The callback method gets the
-//                    // result of the request.
-//                }
-//            } else {
-//                recordAudio();
-//            }
-//
-//        });
-//
-//        stopBtn.setOnClickListener(v -> {
-//
-//            mediaRecorder.stop();
-//
-//            Toast.makeText(MainActivity.this, "Recording Completed", Toast.LENGTH_LONG).show();
-//
-//
-//        });
+
+       /**
+        * button click action where we can record audio and check audio record permissions are granted or not
+        */
+   /*     startBtn.setOnClickListener(v -> {
+
+
+            if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                    Manifest.permission.RECORD_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
+                        Manifest.permission.RECORD_AUDIO)) {
+
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+
+                    Snackbar.make(mLayout, R.string.permission_audio_record_rationale,
+                            Snackbar.LENGTH_INDEFINITE)
+                            .setAction("OK", view -> ActivityCompat.requestPermissions(MainActivity.this,
+                                    new String[]{Manifest.permission.RECORD_AUDIO},
+                                    REQUEST_AUDIO))
+                            .show();
+
+                } else {
+
+                    // No explanation needed, we can request the permission.
+
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.RECORD_AUDIO},
+                            REQUEST_AUDIO);
+
+                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                    // app-defined int constant. The callback method gets the
+                    // result of the request.
+                }
+            } else {
+                recordAudio();
+            }
+
+        });
+        */
+    /**
+     * button click action to stop audio recording
+     */
+
+     /*   stopBtn.setOnClickListener(v -> {
+
+            mediaRecorder.stop();
+
+            Toast.makeText(MainActivity.this, "Recording Completed", Toast.LENGTH_LONG).show();
+
+
+        });
+        */
 
 //        speech_output.setOnClickListener(v1 -> youTubePlayer.loadVideo("fhWaJi1Hsfo", seekTime));
 
@@ -209,49 +218,37 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         }
     }
 
-//    private void recordAudio() {
-//
-////        audioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + createRandomAudioFileName(5) + "AudioRecording.3gp";
-//
-//
-//        audioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/www" + "AudioRecording.mp4";
-//
-//        mediaRecorderReady();
-//
-//        try {
-//            mediaRecorder.prepare();
-//            mediaRecorder.start();
-//        } catch (IllegalStateException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//
-//
-//        Toast.makeText(MainActivity.this, "Recording started", Toast.LENGTH_LONG).show();
-//
-//
-//    }
-//
-//
-//    public String createRandomAudioFileName(int string) {
-//
-//        StringBuilder stringBuilder = new StringBuilder(string);
-//
-//        int i = 0;
-//        while (i < string) {
-//
-//            stringBuilder.append(randomAudioFileName.charAt(random.nextInt(randomAudioFileName.length())));
-//
-//            i++;
-//        }
-//        return stringBuilder.toString();
-//
-//    }
-//
-//
+
+    /**
+     * method to record audio,permission check for storage not done
+     */
+
+   /* private void recordAudio() {
+
+
+
+        audioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/videoken" + "AudioRecording.mp4";
+
+        mediaRecorderReady();
+
+        try {
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+        } catch (IllegalStateException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        Toast.makeText(MainActivity.this, "Recording started", Toast.LENGTH_LONG).show();
+
+
+    }
+    */
+
 //    public void mediaRecorderReady() {
 //
 //        mediaRecorder = new MediaRecorder();
@@ -296,6 +293,7 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         return youTubeView;
     }
 
+
 //    @Override
 //    public void onRequestPermissionsResult(int requestCode,
 //                                           String permissions[], int[] grantResults) {
@@ -335,7 +333,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//                    speech_output.setText(result.get(0));
 
 
                     db.addLocation(new VideoModel(videoName, String.valueOf(seekTime), result.get(0)));
@@ -364,8 +361,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
@@ -377,7 +372,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         mSearchAction = menu.findItem(R.id.action_search);
 //        mMicAction = menu.findItem(R.id.action_mic);
         return super.onPrepareOptionsMenu(menu);
-//        return false;
     }
 
     @Override
@@ -454,8 +448,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
             Matcher matcher = compiledPattern.matcher(url);
 
             if (matcher.find()) {
-            //        return matcher.group();
-                Log.d("Tag","----video from url ----"+matcher.group());
 
                 youTubePlayer.loadVideo(matcher.group());
             }
@@ -495,7 +487,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
 
             updateLog("onPaused()");
 
-            Log.d("Tag", "-------wwww " + youTubePlayer.getCurrentTimeMillis());
 
             seekTime = youTubePlayer.getCurrentTimeMillis();
 
@@ -528,7 +519,6 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         private void updateLog(String prompt) {
             log += "MyPlayerStateChangeListener" + "\n" +
                     prompt + "\n\n=====";
-//            textVideoLog.setText(log);
 
             Log.d("Tag", log);
         }
